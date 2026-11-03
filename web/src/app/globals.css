@@ -1,0 +1,53 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+  --muted: #6b7280;
+  --panel: rgba(255, 255, 255, 0.96);
+  --border: #e5e7eb;
+  --accent: #2563eb;
+  --neon: #39ff14;
+  --gray: #9ca3af;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+
+.app { position: relative; height: 100dvh; }
+.map { position: absolute; inset: 0; }
+
+.panel { position: absolute; z-index: 1000; top: 16px; left: 16px; right: 16px; max-width: 480px;
+  display: flex; flex-direction: column; gap: 8px; }
+.search { display: flex; background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12); overflow: hidden; }
+.search input { flex: 1; min-width: 0; border: 0; padding: 14px 16px; font-size: 16px; background: transparent; outline: none; }
+.search button { border: 0; background: var(--accent); color: #fff; padding: 0 20px; font-size: 15px; font-weight: 600; cursor: pointer; }
+.search button:disabled { opacity: 0.6; }
+
+.summary, .notice { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px;
+  font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+.notice { color: var(--muted); }
+.chip { border: 1px solid var(--accent); color: var(--accent); background: #eff6ff; border-radius: 999px; padding: 2px 10px; font-size: 13px; cursor: pointer; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: -1px; }
+.dot-yes { background: var(--neon); }
+.dot-no { background: var(--gray); }
+
+/* 식당 마커: 기본 = 주황 점, 가능 = 형광 테두리 깜빡임, 불가능 = 회색 */
+.pin { width: 18px; height: 18px; border-radius: 50%; background: #f97316; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4); }
+.pin-no { background: var(--gray); border-color: #e5e7eb; opacity: 0.85; }
+.pin-yes { background: #f97316; border: 3px solid var(--neon); animation: neon-blink 1s ease-in-out infinite; }
+@keyframes neon-blink {
+  0%, 100% { border-color: var(--neon); box-shadow: 0 0 6px 3px var(--neon); }
+  50% { border-color: transparent; box-shadow: 0 0 0 0 transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pin-yes { animation-duration: 2s; }
+}
+
+.popup strong { font-size: 15px; }
+.popup-cat, .popup-addr { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.popup-state { margin-top: 6px; font-size: 13px; }
+.popup-btns { display: flex; gap: 6px; margin-top: 8px; }
+.popup-btns button { flex: 1; border: 0; border-radius: 8px; padding: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.btn-yes { background: var(--neon); color: #052e00; }
+.btn-no { background: #e5e7eb; color: #374151; }
