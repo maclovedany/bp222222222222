@@ -34,7 +34,7 @@
    - Google AI Studio → Gemini API 키
 3. **Aside**: 앱을 켜고 CLI를 로그인합니다. `aside login --email <내 이메일>` 실행 후 Aside 설정 > Account > Devices에서 승인합니다.
    특정 프로필을 쓰려면 `aside host profiles`로 ID를 확인해 `ASIDE_PROFILE`에 넣습니다.
-4. **Vercel**: 이 `web` 폴더를 프로젝트 루트로 배포합니다. 환경변수 `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `GEMINI_API_KEY`를 넣습니다.
+4. **Vercel**: 프로젝트 `bplepay-map`(https://bplepay-map.vercel.app)이 GitHub 저장소와 연결돼 있습니다. Root Directory는 `web`이고, `main`에 푸시하면 자동으로 배포됩니다. 환경변수 `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `GEMINI_API_KEY`, `GEMINI_MODEL`은 Vercel에 등록돼 있습니다.
 
 ## 실행
 
