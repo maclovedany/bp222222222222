@@ -107,7 +107,7 @@ export default function MapView() {
   // 지도 초기화
   useEffect(() => {
     if (!mapEl.current || map.current) return;
-    const m = L.map(mapEl.current, { zoomControl: false }).setView([37.5665, 126.978], 13);
+    const m = L.map(mapEl.current, { zoomControl: false }).setView([35.8693, 128.5963], 16); // 대구 동성로
     L.control.zoom({ position: "bottomright" }).addTo(m);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
